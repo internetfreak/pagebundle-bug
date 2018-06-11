@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>
+            {{ block "title" . }}
+                {{ .Title }} | {{ .Site.Title }}
+            {{ end }}
+        </title>
+
+        {{ range .AllTranslations}}
+            <link rel="alternate" hreflang="{{ .Language }}" href="{{ .Permalink }}" />
+        {{ end }}
+    </head>
+    <body>
+        {{ block "content" . }}{{ end }}
+    </body>
+</html>

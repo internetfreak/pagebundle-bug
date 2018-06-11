@@ -1,0 +1,9 @@
+{{ define "content" }}
+{{ $posts := where .Site.RegularPages ".Type" "blog" }}
+{{ range $index, $element := $posts }}
+{{ $featuredImage := $element.Resources.GetMatch "images/hero-image.*" }}
+{{ if $featuredImage}}
+<img class="featured-post-image" src="{{ $featuredImage.Permalink }}" />
+{{ end }}
+{{ end }}
+{{ end }}
